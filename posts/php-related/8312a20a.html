@@ -16,18 +16,18 @@
 
 
 
-<meta name="description" content="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库1、navicat 连接阿里云RDS的设置 2、使用Navicat连接阿里云ECS服务器上的MySQL数据库 二、Navicat导入csv乱码以及导出乱码问题解决办法12345678910111、导入csv出现乱码1.1、把数据库连接编码（Encoding）设置成gb2312;1.2、导入csv数据，显示正常(可选加上id字段并设置自">
+<meta name="description" content="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库1、navicat 连接阿里云RDS的设置 2、使用Navicat连接阿里云ECS服务器上的MySQL数据库">
 <meta name="keywords" content="编程,php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP相关">
 <meta property="og:url" content="https://izacklee.cn/blog/posts/php-related/8312a20a.html">
 <meta property="og:site_name" content="ZackLee的博客">
-<meta property="og:description" content="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库1、navicat 连接阿里云RDS的设置 2、使用Navicat连接阿里云ECS服务器上的MySQL数据库 二、Navicat导入csv乱码以及导出乱码问题解决办法12345678910111、导入csv出现乱码1.1、把数据库连接编码（Encoding）设置成gb2312;1.2、导入csv数据，显示正常(可选加上id字段并设置自">
+<meta property="og:description" content="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库1、navicat 连接阿里云RDS的设置 2、使用Navicat连接阿里云ECS服务器上的MySQL数据库">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-01T04:55:19.000Z">
+<meta property="og:updated_time" content="2019-09-01T05:13:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP相关">
-<meta name="twitter:description" content="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库1、navicat 连接阿里云RDS的设置 2、使用Navicat连接阿里云ECS服务器上的MySQL数据库 二、Navicat导入csv乱码以及导出乱码问题解决办法12345678910111、导入csv出现乱码1.1、把数据库连接编码（Encoding）设置成gb2312;1.2、导入csv数据，显示正常(可选加上id字段并设置自">
+<meta name="twitter:description" content="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库1、navicat 连接阿里云RDS的设置 2、使用Navicat连接阿里云ECS服务器上的MySQL数据库">
 
 <link rel="apple-touch-icon" href="/blog//apple-touch-icon.png">
 
@@ -330,6 +330,8 @@
           
         <h2 id="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库"><a href="#一、使用Navicat连接阿里云ECS服务器上的MySQL数据库" class="headerlink" title="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库"></a>一、使用Navicat连接阿里云ECS服务器上的MySQL数据库</h2><p><a href="https://blog.csdn.net/sunyuhua_keyboard/article/details/80798900" target="_blank" rel="noopener">1、navicat 连接阿里云RDS的设置</a></p>
 <p><a href="https://blog.csdn.net/nw_ningwang/article/details/76218997" target="_blank" rel="noopener">2、使用Navicat连接阿里云ECS服务器上的MySQL数据库</a></p>
+<a id="more"></a>
+
 <h2 id="二、Navicat导入csv乱码以及导出乱码问题解决办法"><a href="#二、Navicat导入csv乱码以及导出乱码问题解决办法" class="headerlink" title="二、Navicat导入csv乱码以及导出乱码问题解决办法"></a>二、Navicat导入csv乱码以及导出乱码问题解决办法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、导入csv出现乱码</span><br><span class="line">1.1、把数据库连接编码（Encoding）设置成gb2312;</span><br><span class="line">1.2、导入csv数据，显示正常(可选加上id字段并设置自增长)；</span><br><span class="line">1.3、把刚导入的表执行导出sql文件；</span><br><span class="line">1.4、用Sublime Text打开sql文件是乱码。执行这个操作转换成gbk格式编码：File-&gt;Reload with Encoding-&gt;Chinese Simplifild(GBK),显示正常；</span><br><span class="line">1.5、把需要改的表名，字段，自增长id起始值等等改了之后，继续用Sublime Text新建一个文本文档(Text)：File-&gt;New File，把改好的sql文件内容复制粘贴到这个新建的文本文档里，保存：File-&gt;Save With Encoding-&gt;UTF-8-&gt;Save;</span><br><span class="line">1.6、把数据库连接编码（Encoding）设置回Auto;</span><br><span class="line">1.7、把新的sql文件导入，中文乱码解决；</span><br><span class="line"></span><br><span class="line">2、导出csv乱码</span><br><span class="line">2.1、导出csv乱码可以换个格式导出，比如导出xlsx或xls都是可以正常显示的；</span><br></pre></td></tr></table></figure>
 
 <h2 id="三、把编辑器上传图片的src-base64-decode解析上传的方法"><a href="#三、把编辑器上传图片的src-base64-decode解析上传的方法" class="headerlink" title="三、把编辑器上传图片的src base64_decode解析上传的方法"></a>三、把编辑器上传图片的src base64_decode解析上传的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">注意：必须用file_put_contents写入文件上传的方式，move_uploaded_file函数不支持图像类型上传；</span><br><span class="line">     public function actionUeditorUpload()</span><br><span class="line">    &#123;</span><br><span class="line">          $post=Yii::$app-&gt;request-&gt;post();</span><br><span class="line">          if(!empty($post[&apos;IMGSRC&apos;]))&#123;</span><br><span class="line">       $img_src=explode(&apos;,&apos;, $post[&apos;IMGSRC&apos;]);  //获取图片base64编码</span><br><span class="line">       $_img=explode(&apos;:&apos;, $img_src[0]); </span><br><span class="line">       $_img1=explode(&apos;;&apos;, $_img[1]);</span><br><span class="line">       $img_type=explode(&apos;/&apos;, $_img1[0]); //获取图片后缀</span><br><span class="line"></span><br><span class="line">       $tmp_name = base64_decode($img_src[1]); //base64转码获取图片</span><br><span class="line"></span><br><span class="line">           $IMG =&quot;&quot;;</span><br><span class="line">                   $name = $tmp_name;</span><br><span class="line">                   $randName = time() . rand(1000, 9999) . &quot;.&quot; . $img_type[1];</span><br><span class="line">                   $move_Path = \Yii::getAlias(&apos;@api/web/upload/accessory/&apos;.$randName);</span><br><span class="line"></span><br><span class="line">                   if (file_put_contents($move_Path,$name)) </span><br><span class="line">                   &#123;</span><br><span class="line">                          $IMG = &apos;/upload/accessory/&apos;.$randName;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">       return [&apos;IMGSRC&apos;=&gt;&apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$IMG];</span><br><span class="line"></span><br><span class="line">          &#125;else&#123;</span><br><span class="line">                  return ErrorMsg::Info(&quot;数据错误。&quot;);</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -355,7 +357,7 @@
         <p><span>本文标题:</span><a href="/blog/posts/php-related/8312a20a.html">PHP相关</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ZackLee</a></p>
         <p><span>发布时间:</span>2019-08-29, 10:43:53</p>
-        <p><span>最后更新:</span>2019-09-01, 12:55:19</p>
+        <p><span>最后更新:</span>2019-09-01, 13:13:21</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/blog/posts/php-related/8312a20a.html" title="PHP相关">https://izacklee.cn/blog/posts/php-related/8312a20a.html</a>
             <span class="copy-path" data-clipboard-text="原文: https://izacklee.cn/blog/posts/php-related/8312a20a.html　　作者: ZackLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
