@@ -16,18 +16,18 @@
 
 
 
-<meta name="description" content="linux">
+<meta name="description" content="##一、git操作笔记 1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。 2、git status中出现的untracked files文件忽略方法： 比如要忽略如下untracked files的文件 1234.deploy_git/no">
 <meta name="keywords" content="linux,编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux日常笔记">
 <meta property="og:url" content="https://izacklee.cn/blog/posts/linux-daily-notes/6a805780.html">
 <meta property="og:site_name" content="ZackLee的博客">
-<meta property="og:description" content="linux">
+<meta property="og:description" content="##一、git操作笔记 1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。 2、git status中出现的untracked files文件忽略方法： 比如要忽略如下untracked files的文件 1234.deploy_git/no">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-29T08:36:30.000Z">
+<meta property="og:updated_time" content="2019-09-01T03:58:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux日常笔记">
-<meta name="twitter:description" content="linux">
+<meta name="twitter:description" content="##一、git操作笔记 1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。 2、git status中出现的untracked files文件忽略方法： 比如要忽略如下untracked files的文件 1234.deploy_git/no">
 
 <link rel="apple-touch-icon" href="/blog//apple-touch-icon.png">
 
@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发者/">开发者</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/编程/">编程</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/开发者/">开发者</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/编程/">编程</a></li></ul>
                     </div>
                 </section>
                 
@@ -328,7 +328,43 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>linux</p>
+        <p>##一、git操作笔记</p>
+<p>1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。</p>
+<p>2、git status中出现的untracked files文件忽略方法：</p>
+<p>比如要忽略如下untracked files的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.deploy_git/</span><br><span class="line">node_modules/cliui/</span><br><span class="line">public/img/avatar_1.png</span><br><span class="line">public/search.xml</span><br></pre></td></tr></table></figure>
+
+<p>在根目录建立.gitgnore文件<br>配置如下代码即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.deploy_git/</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br></pre></td></tr></table></figure>
+
+<p>3、<a href="https://blog.csdn.net/themagickeyjianan/article/details/79683980" target="_blank" rel="noopener">修改git config配置文件</a></p>
+<p>4、Error: Not Found问题 ：owner或者repo配置错误了，注意名字和仓库名字的大小写。</p>
+<p>5、查看console报：This request has been blocked; the content must be served over HTTPS.<br>   <a href="https://blog.csdn.net/xiaoxing598/article/details/49360643" target="_blank" rel="noopener">解决方式：</a><br>   在头部加入这么一行代码就行（这是目前我用的方式）：</p>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p>   原因是：HTTPS 是 HTTP over Secure Socket Layer，以安全为目标的 HTTP 通道，所以在 HTTPS 承载的页面上不允许出现 http 请求，一旦出现就是提示或报错这个错误：This request has been blocked; the content must be served over HTTPS.</p>
+<p>   很多运营对 https 没有技术概念，在填入的数据中不免出现 http 的资源，体系庞大，出现疏忽和漏洞也是不可避免的。<br>   CSP设置upgrade-insecure-requests<br>    好在 W3C 工作组考虑到了我们升级 HTTPS 的艰难，在 2015 年 4 月份就出了一个 <a href="http://www.w3.org/TR/mixed-content/" target="_blank" rel="noopener">Upgrade Insecure Requests 的草案</a>，他的作用就是让浏览器自动升级请求。</p>
+<pre><code>在我们服务器的响应头中加入：
+header(&quot;Content-Security-Policy: upgrade-insecure-requests&quot;);
+
+我们的页面是 https 的，而这个页面中包含了大量的 http 资源（图片、iframe等），页面一旦发现存在上述响应头，会在加载 http 资源时自动替换成 https 请求。
+
+当然，如果我们不方便在服务器/Nginx 上操作，也可以在页面中加入 meta 头：
+
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot; /&gt;
+
+目前支持这个设置的还只有 chrome 43.0，不过我相信，CSP 将成为未来 web 前端安全大力关注和使用的内容。而 upgrade-insecure-requests 草案也会很快进入 RFC 模式。
+
+从 W3C 工作组给出的 example（http://www.w3.org/TR/upgrade-insecure-requests/#examples），可以看出，这个设置不会对外域的 a 链接做处理，所以可以放心使用。</code></pre><p>6、git新文件夹无法识别出来，执行git add –all报【git】warning: adding embedded git repository的错误<br>   解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、在新文件夹下执行find . -name &quot;.git&quot; | xargs rm -Rf</span><br><span class="line">2、再次执行git add --all 不报错了</span><br></pre></td></tr></table></figure>
+
+<p>   原因是：当前目录下面有.git文件夹——默认是隐藏的，直接将.git文件夹干掉即可</p>
+<p>7、fatal: Not a git repository (or any of the parent directories): .git—-在当前指向的文件夹里找不到库（.git文件夹）<br>    原因可能是：<br>　　(1)不小心删了.git文件夹（这个文件夹通常是隐藏的）<br>　　(2)根本没创建版本库<br>　　(3)当前指向的文件夹不是之前创建版本库的文件夹（这种情况通常发生在之前用过$ cd 命令然后结束工作重启）<br>　　解决方法：<br>　　(1),(2)的解决方法是用$ git init重新建一个版本库<br>　　(3)的解决方法是用$ cd “文件夹名称”转到原先的文件夹里，可以先用$ pwd看看当前指向的文件夹（或者在想创建版本库的文件夹上右键选中“git”）</p>
+<p>8、<a href="https://www.cnblogs.com/huey/p/5091656.html" target="_blank" rel="noopener">Git CMD - push: Update remote refs along with associated objects</a></p>
+<p>9、如何解决failed to push some refs to git<br>    在使用git 对源代码进行push到gitHub时可能会出错，信息提示：failed to push some refs to git<br>    原因是：github中的README.md文件不在本地代码目录中<br>    解决办法：<br>    可以通过如下命令进行代码合并【注：pull=fetch+merge]<br>    git pull –rebase origin master<br>    执行上面命令行后可以看到本地代码库中多了README.md文件<br>    此时再执行语句 git push -u origin master即可完成代码上传到github</p>
+<h2 id="二、Mac操作笔记"><a href="#二、Mac操作笔记" class="headerlink" title="二、Mac操作笔记"></a>二、Mac操作笔记</h2><p>1、<a href="https://www.jianshu.com/p/ba6c32598d91" target="_blank" rel="noopener">Mac终端iTerm2出现session ended解决办法</a></p>
+<p>##三、Web端笔记</p>
+<p><a href="https://blog.csdn.net/a386139471/article/details/79978198" target="_blank" rel="noopener">关于Google浏览器控制台报failed to load resource : net :: ERR_CONNECTION_RESET导致页面加载异常的问题 </a></p>
 
       
     </div>
@@ -340,7 +376,7 @@
         <p><span>本文标题:</span><a href="/blog/posts/linux-daily-notes/6a805780.html">Linux日常笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ZackLee</a></p>
         <p><span>发布时间:</span>2019-08-29, 10:37:51</p>
-        <p><span>最后更新:</span>2019-08-29, 16:36:30</p>
+        <p><span>最后更新:</span>2019-09-01, 11:58:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/blog/posts/linux-daily-notes/6a805780.html" title="Linux日常笔记">https://izacklee.cn/blog/posts/linux-daily-notes/6a805780.html</a>
             <span class="copy-path" data-clipboard-text="原文: https://izacklee.cn/blog/posts/linux-daily-notes/6a805780.html　　作者: ZackLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -417,7 +453,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Mac操作笔记"><span class="toc-number">1.</span> <span class="toc-text">二、Mac操作笔记</span></a></li></ol>
         
     </div>
     <style>
@@ -508,7 +544,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/posts/php-related/8312a20a.html">PHP相关</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/linux-daily-notes/6a805780.html">Linux日常笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/index/50a2b841.html">你好</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/posts/markdown-basic-grammar/f90e5018.html">Markdown基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/php-related/8312a20a.html">PHP相关</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/linux-daily-notes/6a805780.html">Linux日常笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/index/50a2b841.html">你好</a></li></ul>
 
 
 
