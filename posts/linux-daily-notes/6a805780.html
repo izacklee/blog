@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="ZackLee的博客">
 <meta property="og:description" content="一、git操作笔记1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。 2、git status中出现的untracked files文件忽略方法：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-01T05:14:51.000Z">
+<meta property="og:updated_time" content="2019-09-08T13:18:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux日常笔记">
 <meta name="twitter:description" content="一、git操作笔记1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。 2、git status中出现的untracked files文件忽略方法：">
@@ -362,7 +362,10 @@ header(&quot;Content-Security-Policy: upgrade-insecure-requests&quot;);
 <p>   原因是：当前目录下面有.git文件夹——默认是隐藏的，直接将.git文件夹干掉即可</p>
 <p>7、fatal: Not a git repository (or any of the parent directories): .git—-在当前指向的文件夹里找不到库（.git文件夹）<br>    原因可能是：<br>　　(1)不小心删了.git文件夹（这个文件夹通常是隐藏的）<br>　　(2)根本没创建版本库<br>　　(3)当前指向的文件夹不是之前创建版本库的文件夹（这种情况通常发生在之前用过$ cd 命令然后结束工作重启）<br>　　解决方法：<br>　　(1),(2)的解决方法是用$ git init重新建一个版本库<br>　　(3)的解决方法是用$ cd “文件夹名称”转到原先的文件夹里，可以先用$ pwd看看当前指向的文件夹（或者在想创建版本库的文件夹上右键选中“git”）</p>
 <p>8、<a href="https://www.cnblogs.com/huey/p/5091656.html" target="_blank" rel="noopener">Git CMD - push: Update remote refs along with associated objects</a></p>
-<p>9、如何解决failed to push some refs to git<br>    在使用git 对源代码进行push到gitHub时可能会出错，信息提示：failed to push some refs to git<br>    原因是：github中的README.md文件不在本地代码目录中<br>    解决办法：<br>    可以通过如下命令进行代码合并【注：pull=fetch+merge]<br>    git pull –rebase origin master<br>    执行上面命令行后可以看到本地代码库中多了README.md文件<br>    此时再执行语句 git push -u origin master即可完成代码上传到github</p>
+<p>9、如何解决failed to push some refs to git<br>    在使用git 对源代码进行push到gitHub时可能会出错，信息 提示：failed to push some refs to git<br>    原因是：github中的README.md文件不在本地代码目录中<br>    解决办法：<br>    可以通过如下命令进行代码合并【注：pull=fetch+merge]<br>    git pull –rebase origin master<br>    执行上面命令行后可以看到本地代码库中多了README.md文件<br>    此时再执行语句 git push -u origin master即可完成代码上传到github</p>
+<p>10、SourceTree 提交项目到码云<br>     (1)在码云上创建仓库，获取项目仓库地址<br>     (2)sourcetree<br>     (2.1)文件-&gt;新建/克隆-&gt;从URL克隆<br>          源URL：存放码云仓库的绝对路径<br>​          目标路径：本地新建项目文件夹，选择根路径<br>​          名称：自定义<br>     (3)项目上传：把项目源码放入新家文件夹中，选择提交上传功能。</p>
+<p>​     附：<a href="https://www.cnblogs.com/amybathory/p/10729457.html" target="_blank" rel="noopener">使用git将代码上传到码云</a><br>​             <a href="https://www.jianshu.com/p/434b10c7f112" target="_blank" rel="noopener">解决sourcetree连接码云失败 Warning: Permanently added the ECDSA host key for IP address ‘218.11.0.86’ …</a></p>
+<p>11、<a href="https://www.cnblogs.com/e0yu/p/9828520.html" target="_blank" rel="noopener">you do not have permission to pull from the repository解决方法</a></p>
 <h2 id="二、Mac操作笔记"><a href="#二、Mac操作笔记" class="headerlink" title="二、Mac操作笔记"></a>二、Mac操作笔记</h2><p>1、<a href="https://www.jianshu.com/p/ba6c32598d91" target="_blank" rel="noopener">Mac终端iTerm2出现session ended解决办法</a></p>
 <h2 id="三、Web端笔记"><a href="#三、Web端笔记" class="headerlink" title="三、Web端笔记"></a>三、Web端笔记</h2><p><a href="https://blog.csdn.net/a386139471/article/details/79978198" target="_blank" rel="noopener">关于Google浏览器控制台报failed to load resource : net :: ERR_CONNECTION_RESET导致页面加载异常的问题 </a></p>
 
@@ -376,7 +379,7 @@ header(&quot;Content-Security-Policy: upgrade-insecure-requests&quot;);
         <p><span>本文标题:</span><a href="/blog/posts/linux-daily-notes/6a805780.html">Linux日常笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ZackLee</a></p>
         <p><span>发布时间:</span>2019-08-29, 10:37:51</p>
-        <p><span>最后更新:</span>2019-09-01, 13:14:51</p>
+        <p><span>最后更新:</span>2019-09-08, 21:18:25</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/blog/posts/linux-daily-notes/6a805780.html" title="Linux日常笔记">https://izacklee.cn/blog/posts/linux-daily-notes/6a805780.html</a>
             <span class="copy-path" data-clipboard-text="原文: https://izacklee.cn/blog/posts/linux-daily-notes/6a805780.html　　作者: ZackLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
