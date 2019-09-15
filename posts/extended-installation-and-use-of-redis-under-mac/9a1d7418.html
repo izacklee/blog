@@ -15,21 +15,21 @@
 <meta name="author" content="ZackLee">
 
 
-    
-    
 
-
-<meta name="description" content="擅长php、linux、vue、小程序。此为博客一枚。">
-<meta name="keywords" content="后端,php,java,yii2,ci,laravel,js,jquery,javascript,html5,hexo,github,开发者,程序媛,极客,编程,代码,开源,IT网站,用户体验,Developer,Programmer,Coder,Geek,html,css,css3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZackLee的博客">
-<meta property="og:url" content="https://izacklee.cn/blog/index.html">
+<meta name="description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。 下载r">
+<meta name="keywords" content="redis,java,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac下redis扩展安装与使用">
+<meta property="og:url" content="https://izacklee.cn/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html">
 <meta property="og:site_name" content="ZackLee的博客">
-<meta property="og:description" content="擅长php、linux、vue、小程序。此为博客一枚。">
+<meta property="og:description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。 下载r">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://image-static.segmentfault.com/105/598/10559850-5d7dbe767df0f_articlex">
+<meta property="og:updated_time" content="2019-09-15T06:42:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZackLee的博客">
-<meta name="twitter:description" content="擅长php、linux、vue、小程序。此为博客一枚。">
+<meta name="twitter:title" content="Mac下redis扩展安装与使用">
+<meta name="twitter:description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。 下载r">
+<meta name="twitter:image" content="https://image-static.segmentfault.com/105/598/10559850-5d7dbe767df0f_articlex">
 
 <link rel="apple-touch-icon" href="/blog//apple-touch-icon.png">
 
@@ -57,13 +57,11 @@
 <link rel="stylesheet" href="/blog/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ZackLee的博客</title>
+<title>Mac下redis扩展安装与使用 | ZackLee的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -72,8 +70,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -288,9 +286,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-extended-installation-and-use-of-redis-under-mac" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-extended-installation-and-use-of-redis-under-mac" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html" class="article-date">
@@ -308,330 +304,189 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html">Mac下redis扩展安装与使用</a>
+    <h1 class="article-title" itemprop="name">
+      Mac下redis扩展安装与使用
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。<br>mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。</p>
-<h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p>在安装redis前需要先下载redis，可到redis官网下载，这里我提供个下载地址：<a href="http://download.redis.io/releases/redis-5.0.5.tar.gz" target="_blank" rel="noopener">redis-5.0.5下载</a></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/blog/categories/文章/">文章</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/redis/">redis</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-   <!-- 添加打赏功能 只在文章详情中显示-->
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-basic-grammar-of-markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/posts/basic-grammar-of-markdown/f90e5018.html" class="article-date">
-      <time datetime="2019-09-01T03:31:44.000Z" itemprop="datePublished">2019-09-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/posts/basic-grammar-of-markdown/f90e5018.html">Markdown的基本语法</a>
-    </h1>
-  
-
-      </header>
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
-<p>相比WYSIWYG编辑器</p>
-<p><strong>优点：</strong><br>1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。</p>
-          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。<br>mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。</p>
+<h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p>在安装redis前需要先下载redis，可到redis官网下载，这里我提供个下载地址：<a href="http://download.redis.io/releases/redis-5.0.5.tar.gz" target="_blank" rel="noopener">redis-5.0.5下载</a></p>
+<a id="more"></a>
+
+<h2 id="安装与启动redis"><a href="#安装与启动redis" class="headerlink" title="安装与启动redis"></a>安装与启动redis</h2><p>1、将下载好的redis解压到/usr/local目录下，运行命令：<code>tar -zxvf redis-5.0.5.tar.gz  -C /usr/local/redis-5.0.5</code></p>
+<p>2、终端进入解压后的根目录：<code>cd /usr/local/redis-5.0.5</code></p>
+<p>3、测试编译：<code>sudo make test</code> </p>
+<p>4、安装redis：<code>sudo make install</code></p>
+<p>如果在第4步测试时报如下错：</p>
+<p>Executing test client: couldn’t execute “src/redis-benchmark”: no such file or directory.</p>
+<p>则执行以下两个步骤</p>
+<p>（1）、<code>sudo make distclean</code></p>
+<p>（2）、<code>sudo make</code></p>
+<p>5、配置<br> 上面安装成功后，去配置php.ini文件：<br> extension_dir = “/usr/lib/php/extensions/no-debug-non-zts-20131226/“  </p>
+<p>//这里的地址是你的reids安装好redis.so的位置。</p>
+<p> extension = redis.so</p>
+<p>6、打印输出phpinfo()看看有没有安装成功，如能看到如下图信息则说明安装成功。</p>
+<p><img src="https://image-static.segmentfault.com/105/598/10559850-5d7dbe767df0f_articlex" alt="clipboard.png"></p>
+<p>（检查redis是否安装成功：亦可在安装完成执行make test，出现【\o/ All tests passed without errors!】【Cleanup: may take some time… OK】说明redis安装成功。）</p>
+<p>7、修改redis根目录的redis.conf中【daemonize no】为【daemonize yes】启动以后台运行模式</p>
+<p>8、启动redis在redis根目录执行命令：./src/redis-server ./redis.conf，停止redis服务可以执行客户端命令：./src/redis-cli shutdown</p>
+<p>9、登陆客户端命令为：[./src/redis-cli]或[./src/redis-cli -p 6379]或[telnet 127.0.0.1 6379]，在redis安装文件夹的根目录执行。</p>
+<h2 id="测试redis"><a href="#测试redis" class="headerlink" title="测试redis"></a>测试redis</h2><p>在完成安装与启动redis后，登录客户端就可以测试redis了。<br>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set key &quot;success&quot;  //写入数据</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get key  //读取数据</span><br><span class="line">&quot;success&quot;</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h2><p><strong>1、sudo make install时提示</strong></p>
+<p>Installing shared extensions:     /usr/lib/php/extensions/no-debug-non-zts-20131226/<br>cp: /usr/lib/php/extensions/no-debug-non-zts-20131226/#INST@12567#: Operation not permitted<br>make: *** [install-modules] Error 1</p>
+<p>解决方案：<a href="https://blog.csdn.net/moliyiran/article/details/78816291" target="_blank" rel="noopener">mac php安装扩展 make install not permit</a></p>
+<p><strong>2、安装好后，配置php.ini文件</strong></p>
+<p>在文件中增加了  extension=redis.so   ,测试redis时，发现并没有出来。</p>
+<p>解决方案：<br>extension_dir = “/usr/local/php/lib/php/extensions/no-debug-zts-20090626”  #地址中写 make install 返回的地址</p>
+<p>extension=redis.so</p>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="https://www.cnblogs.com/the-fool/p/11054061.html" target="_blank" rel="noopener">Mac下安装redis5.0 与命令</a><br><a href="http://www.aiuxian.com/article/p-2288714.html" target="_blank" rel="noopener">redis安装配置</a><br><a href="https://www.cnblogs.com/hsd1727728211/p/redis.html" target="_blank" rel="noopener">【redis】mac下redis扩展安装与遇到的坑汇</a><br><a href="https://www.jianshu.com/p/8b66def964ed" target="_blank" rel="noopener">MAMP安装redis</a></p>
+
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/blog/categories/文章/">文章</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/markdown/">markdown</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/blog/posts/basic-grammar-of-markdown/f90e5018.html#more">阅读全文 >></a>
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html">Mac下redis扩展安装与使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">ZackLee</a></p>
+        <p><span>发布时间:</span>2019-09-15, 14:25:55</p>
+        <p><span>最后更新:</span>2019-09-15, 14:42:49</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html" title="Mac下redis扩展安装与使用">https://izacklee.cn/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html</a>
+            <span class="copy-path" data-clipboard-text="原文: https://izacklee.cn/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html　　作者: ZackLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-   <!-- 添加打赏功能 只在文章详情中显示-->
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-php-related" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/posts/php-related/8312a20a.html" class="article-date">
-      <time datetime="2019-08-29T02:43:53.000Z" itemprop="datePublished">2019-08-29</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/posts/php-related/8312a20a.html">PHP相关</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库"><a href="#一、使用Navicat连接阿里云ECS服务器上的MySQL数据库" class="headerlink" title="一、使用Navicat连接阿里云ECS服务器上的MySQL数据库"></a>一、使用Navicat连接阿里云ECS服务器上的MySQL数据库</h2><p><a href="https://blog.csdn.net/sunyuhua_keyboard/article/details/80798900" target="_blank" rel="noopener">1、navicat 连接阿里云RDS的设置</a></p>
-<p><a href="https://blog.csdn.net/nw_ningwang/article/details/76218997" target="_blank" rel="noopener">2、使用Navicat连接阿里云ECS服务器上的MySQL数据库</a></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/blog/categories/知识/">知识</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/编程/">编程</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/blog/posts/php-related/8312a20a.html#more">阅读全文 >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
-  
-   <!-- 添加打赏功能 只在文章详情中显示-->
-  
-</article>
 
 
 
-
-
-
-
-
-
-  
-    <article id="post-linux-daily-notes" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/posts/linux-daily-notes/6a805780.html" class="article-date">
-      <time datetime="2019-08-29T02:37:51.000Z" itemprop="datePublished">2019-08-29</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/posts/linux-daily-notes/6a805780.html">Linux日常笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="一、git操作笔记"><a href="#一、git操作笔记" class="headerlink" title="一、git操作笔记"></a>一、git操作笔记</h2><p>1、git config core.ignorecase false是修改当前的项目设置为不忽略大小写，git config –global core.ignorecase false设置全局都不忽略大小写。</p>
-<p>2、git status中出现的untracked files文件忽略方法：</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/blog/categories/知识/">知识</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/编程/">编程</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/blog/posts/linux-daily-notes/6a805780.html#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-   <!-- 添加打赏功能 只在文章详情中显示-->
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-index" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/blog/posts/index/50a2b841.html" class="article-date">
-      <time datetime="2019-08-21T11:38:47.000Z" itemprop="datePublished">2019-08-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/posts/index/50a2b841.html">你好</a>
-    </h1>
-  
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/blog/posts/basic-grammar-of-markdown/f90e5018.html">
+                    Markdown的基本语法
+                </a>
+            </div>
+        
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>欢迎来到ZackLee的个人博客。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/blog/categories/文章/">文章</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/开发者/">开发者</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
    <!-- 添加打赏功能 只在文章详情中显示-->
   
+  
+  <! -- 添加打赏图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           打赏2块咖啡钱，支持作者！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src="/blog/"
+                <img src="/blog/"
+        -->
+        <!-- 支付宝打赏图案 -->
+        <img src="/blog//img/Alipay.jpg" alt="支付宝打赏">
+        <!-- 微信打赏图案 -->
+        <img src="/blog//img/WeChatpay.jpg" alt="微信打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加打赏图标 -->
+  
+  
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载redis"><span class="toc-number">2.</span> <span class="toc-text">下载redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与启动redis"><span class="toc-number">3.</span> <span class="toc-text">安装与启动redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试redis"><span class="toc-number">4.</span> <span class="toc-text">测试redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题汇总"><span class="toc-number">5.</span> <span class="toc-text">问题汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关资料"><span class="toc-number">6.</span> <span class="toc-text">相关资料</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Mac下redis扩展安装与使用　| ZackLee的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -639,9 +494,54 @@
 
 
 
+    
+        
+<!-- gitment评论框 start -->
+<div class="gitment-comment">
+    <div id="gitment-container"></div>
+</div>
+    <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+    <script src="https://billts.site/js/gitment.js"></script>
+    <script>
+      var gitment = new Gitment({
+        id: 'Sun Sep 15 2019 14:25:55 GMT+0800', // 可选。建议为Sun Sep 15 2019 14:25:55 GMT+0800
+        owner: 'izacklee', // 可以是你的GitHub用户名，也可以是github id
+        repo: 'izacklee.github.io', //可以是你的任意一个repo，推荐使用githubpage所在的repo
+        oauth: {
+          client_id: '3d1a642acd66b85b670d',//填入上一步骤复制的Client ID
+          client_secret: 'f256dde98d50757147219d6e0f1acf58000e3a84',//填入上一步骤复制的Client Secret
+        },
+      })
+      gitment.render('gitment-container')
+    </script>
 
-  
-  
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/blog/posts/basic-grammar-of-markdown/f90e5018.html" title="下一篇: Markdown的基本语法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html">Mac下redis扩展安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/basic-grammar-of-markdown/f90e5018.html">Markdown的基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/php-related/8312a20a.html">PHP相关</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/linux-daily-notes/6a805780.html">Linux日常笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/posts/index/50a2b841.html">你好</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
