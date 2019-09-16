@@ -16,19 +16,19 @@
 
 
 
-<meta name="description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。 下载r">
+<meta name="description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。">
 <meta name="keywords" content="redis,java,php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下redis扩展安装与使用">
 <meta property="og:url" content="https://izacklee.cn/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html">
 <meta property="og:site_name" content="ZackLee的博客">
-<meta property="og:description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。 下载r">
+<meta property="og:description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://image-static.segmentfault.com/105/598/10559850-5d7dbe767df0f_articlex">
-<meta property="og:updated_time" content="2019-09-15T06:44:12.000Z">
+<meta property="og:updated_time" content="2019-09-16T05:31:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下redis扩展安装与使用">
-<meta name="twitter:description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。 下载r">
+<meta name="twitter:description" content="前言redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。">
 <meta name="twitter:image" content="https://image-static.segmentfault.com/105/598/10559850-5d7dbe767df0f_articlex">
 
 <link rel="apple-touch-icon" href="/blog//apple-touch-icon.png">
@@ -331,9 +331,9 @@
       
           
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。<br>mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。</p>
-<h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p>在安装redis前需要先下载redis，可到redis官网下载，这里我提供个下载地址：<a href="http://download.redis.io/releases/redis-5.0.5.tar.gz" target="_blank" rel="noopener">redis-5.0.5下载</a></p>
 <a id="more"></a>
 
+<h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p>在安装redis前需要先下载redis，可到redis官网下载，这里我提供个下载地址：<a href="http://download.redis.io/releases/redis-5.0.5.tar.gz" target="_blank" rel="noopener">redis-5.0.5下载</a></p>
 <h2 id="安装与启动redis"><a href="#安装与启动redis" class="headerlink" title="安装与启动redis"></a>安装与启动redis</h2><p>1、将下载好的redis解压到/usr/local目录下，运行命令：<code>tar -zxvf redis-5.0.5.tar.gz  -C /usr/local/redis-5.0.5</code></p>
 <p>2、终端进入解压后的根目录：<code>cd /usr/local/redis-5.0.5</code></p>
 <p>3、测试编译：<code>sudo make test</code> </p>
@@ -374,7 +374,7 @@
         <p><span>本文标题:</span><a href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html">Mac下redis扩展安装与使用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">ZackLee</a></p>
         <p><span>发布时间:</span>2019-09-15, 14:25:55</p>
-        <p><span>最后更新:</span>2019-09-15, 14:44:12</p>
+        <p><span>最后更新:</span>2019-09-16, 13:31:14</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html" title="Mac下redis扩展安装与使用">https://izacklee.cn/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html</a>
             <span class="copy-path" data-clipboard-text="原文: https://izacklee.cn/blog/posts/extended-installation-and-use-of-redis-under-mac/9a1d7418.html　　作者: ZackLee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

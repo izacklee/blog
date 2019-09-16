@@ -321,7 +321,6 @@
           
               <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在商品秒杀活动中，比如商品库存只有100，但是在抢购活动中可能有200人同时抢购，这样就出现了并发，在100件商品下单完成库存为0了还有可能继续下单成功，就出现了超卖。</p>
 <p>为了解决这个问题，今天我主要讲一下用redis队列的方式处理。redis有list类型，list类型其实就是一个双向链表。通过lpush，pop操作从链表的头部或者尾部添加删除元素。这使得list即可以用作栈，也可以用作队列。先进先出，一端进，一端出，这就是队列。在队列里前一个走完之后，后一个才会走，所以redis的队列能完美的解决超卖并发的问题。</p>
-<p>解决秒杀超卖问题的方法还有比如：1.使用mysql的事务加排他锁来解决；2.使用文件锁实现。3.使用redis的setnx来实现锁机制等。查看点击：<a href="https://www.cnblogs.com/dawuge/p/10480469.html" target="_blank" rel="noopener">避免商品超卖的4种方案</a></p>
           
       
     </div>
@@ -392,7 +391,6 @@
       
           
               <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>redis是一个高性能的key-value数据库。redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型，并提供多种语言的API。<br>mac本身自带有php环境，但是并没有安装redis扩展，需要我们单独安装，下面我说下安装的步骤，以及需要注意的地方。</p>
-<h2 id="下载redis"><a href="#下载redis" class="headerlink" title="下载redis"></a>下载redis</h2><p>在安装redis前需要先下载redis，可到redis官网下载，这里我提供个下载地址：<a href="http://download.redis.io/releases/redis-5.0.5.tar.gz" target="_blank" rel="noopener">redis-5.0.5下载</a></p>
           
       
     </div>
