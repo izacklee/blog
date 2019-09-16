@@ -290,6 +290,78 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-php-solves-oversell-problem-with-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/blog/posts/php-solves-oversell-problem-with-redis/c15f6c4c.html" class="article-date">
+      <time datetime="2019-09-16T05:21:45.000Z" itemprop="datePublished">2019-09-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/posts/php-solves-oversell-problem-with-redis/c15f6c4c.html">PHP用redis解决超卖的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在商品秒杀活动中，比如商品库存只有100，但是在抢购活动中可能有200人同时抢购，这样就出现了并发，在100件商品下单完成库存为0了还有可能继续下单成功，就出现了超卖。</p>
+<p>为了解决这个问题，今天我主要讲一下用redis队列的方式处理。redis有list类型，list类型其实就是一个双向链表。通过lpush，pop操作从链表的头部或者尾部添加删除元素。这使得list即可以用作栈，也可以用作队列。先进先出，一端进，一端出，这就是队列。在队列里前一个走完之后，后一个才会走，所以redis的队列能完美的解决超卖并发的问题。</p>
+<p>解决秒杀超卖问题的方法还有比如：1.使用mysql的事务加排他锁来解决；2.使用文件锁实现。3.使用redis的setnx来实现锁机制等。查看点击：<a href="https://www.cnblogs.com/dawuge/p/10480469.html" target="_blank" rel="noopener">避免商品超卖的4种方案</a></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/blog/categories/文章/">文章</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/redis/">redis</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/blog/posts/php-solves-oversell-problem-with-redis/c15f6c4c.html#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+   <!-- 添加打赏功能 只在文章详情中显示-->
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-extended-installation-and-use-of-redis-under-mac" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
